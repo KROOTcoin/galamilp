@@ -721,28 +721,28 @@
         </div>
       </div>
       <div>
-        <div class="fw" id="formWrap" role="form" aria-label="Investor enquiry form">
+        <form class="fw" id="formWrap" name="enquiry" data-netlify="true" netlify-honeypot="bot-field" role="form" aria-label="Investor enquiry form"><input type="hidden" name="form-name" value="enquiry"><input type="hidden" name="bot-field" style="display:none">
           <div class="form-title">Submit Enquiry</div>
           <p class="form-sub">For high-net-worth and sophisticated investors only. All submissions reviewed individually. No obligation to invest.</p>
           <div class="frow">
-            <div class="fg"><label>First Name *</label><input type="text" id="fn" placeholder="James"></div>
-            <div class="fg"><label>Last Name *</label><input type="text" id="ln" placeholder="Whitmore"></div>
+            <div class="fg"><label>First Name *</label><input type="text" id="fn" name="first-name" placeholder="James"></div>
+            <div class="fg"><label>Last Name *</label><input type="text" id="ln" name="last-name" placeholder="Whitmore"></div>
           </div>
-          <div class="fg"><label>Email Address *</label><input type="email" id="em" placeholder="j.whitmore@example.com"></div>
-          <div class="fg"><label>Phone Number</label><input type="tel" id="ph" placeholder="+44 7000 000000"></div>
+          <div class="fg"><label>Email Address *</label><input type="email" id="em" name="email" placeholder="j.whitmore@example.com"></div>
+          <div class="fg"><label>Phone Number</label><input type="tel" id="ph" name="phone" placeholder="+44 7000 000000"></div>
           <div class="fg"><label>Investor Type *</label>
-            <select id="itype"><option value="" disabled selected>Select your profile…</option><option>Private Investor</option><option>Family Office</option><option>Institutional Investor</option><option>Corporate / Trading House</option></select>
+            <select id="itype" name="investor-type"><option value="" disabled selected>Select your profile…</option><option>Private Investor</option><option>Family Office</option><option>Institutional Investor</option><option>Corporate / Trading House</option></select>
           </div>
           <div class="fg"><label>Program of Interest *</label>
-            <select id="pr"><option value="" disabled selected>Select a program…</option><option>Zambia–Dubai Program (from $100K USD)</option><option>Guinea–Dubai Program (from €125K EUR)</option><option>Both programs</option></select>
+            <select id="pr" name="program"><option value="" disabled selected>Select a program…</option><option>Zambia–Dubai Program (from $100K USD)</option><option>Guinea–Dubai Program (from €125K EUR)</option><option>Both programs</option></select>
           </div>
           <div class="fg"><label>Country of Residence *</label>
-            <select id="co"><option value="" disabled selected>Select country…</option><option>United Kingdom</option><option>United Arab Emirates</option><option>United States</option><option>Switzerland</option><option>Singapore</option><option>South Africa</option><option>Nigeria</option><option>Canada</option><option>Australia</option><option>Germany</option><option>France</option><option>Other</option></select>
+            <select id="co" name="country"><option value="" disabled selected>Select country…</option><option>United Kingdom</option><option>United Arab Emirates</option><option>United States</option><option>Switzerland</option><option>Singapore</option><option>South Africa</option><option>Nigeria</option><option>Canada</option><option>Australia</option><option>Germany</option><option>France</option><option>Other</option></select>
           </div>
           <div class="fg"><label>Indicative Capital (Per Cycle)</label>
-            <select id="ca"><option value="" disabled selected>Select range…</option><option>$100,000 – $250,000</option><option>$250,000 – $500,000</option><option>$500,000 – $1,000,000</option><option>$1,000,000+</option><option>Prefer not to say at this stage</option></select>
+            <select id="ca" name="capital-range"><option value="" disabled selected>Select range…</option><option>$100,000 – $250,000</option><option>$250,000 – $500,000</option><option>$500,000 – $1,000,000</option><option>$1,000,000+</option><option>Prefer not to say at this stage</option></select>
           </div>
-          <div class="fg"><label>Message <span style="font-weight:300;text-transform:none;letter-spacing:0;">(optional)</span></label><textarea id="msg" placeholder="Share any questions or context about your investment background."></textarea></div>
+          <div class="fg"><label>Message <span style="font-weight:300;text-transform:none;letter-spacing:0;">(optional)</span></label><textarea id="msg" name="message" placeholder="Share any questions or context about your investment background."></textarea></div>
           <div class="qual-b">
             <div class="qual-b-label">Investor Self-Certification</div>
             <p>I confirm I am a high-net-worth individual, sophisticated investor, or institutional investor and understand this program involves capital risk, is not FCA regulated, and is not FSCS covered.</p>
@@ -753,8 +753,7 @@
           </div>
           <button type="button" class="fsub" onclick="doSubmit()">Submit Enquiry</button>
           <p class="flegal">By submitting this form you agree to our Privacy Policy. Galami Gold will never share your details with third parties without your consent. Submission does not create any legal obligation to invest.</p>
-        </div>
-        <div class="fw" id="succWrap" style="display:none;">
+        </form>        <div class="fw" id="succWrap" style="display:none;">
           <div class="fsucc show">
             <div style="font-size:34px;color:var(--gold);">✦</div>
             <h3>Enquiry Received</h3>
@@ -839,13 +838,7 @@
     if (!co)    { alert('Please select your country of residence.'); return; }
     if (!qOk)   { alert('Please confirm your investor self-certification.'); return; }
     var sb = document.querySelector('.fsub');
-    sb.textContent = 'Submitting...';
-    sb.disabled = true;
-    setTimeout(function() {
-      document.getElementById('formWrap').style.display = 'none';
-      document.getElementById('succWrap').style.display = 'block';
-    }, 900);
-  }
+    sb.textContent = 'Submitting...';    sb.disabled = true;    var fd = new FormData(document.getElementById('formWrap'));    fetch('/', { method: 'POST', body: fd })      .catch(function() {})      .finally(function() {        document.getElementById('formWrap').style.display = 'none';        document.getElementById('succWrap').style.display = 'block';      });  }
   var secs = document.querySelectorAll('section[id]');
   var navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', function() {
