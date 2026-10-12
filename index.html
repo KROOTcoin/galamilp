@@ -445,6 +445,7 @@
   ::-webkit-scrollbar-track { background: var(--obsidian); }
   ::-webkit-scrollbar-thumb { background: var(--border-strong); }
 </style>
+<script src="cert.js"></script>
 </head>
 <body>
 
@@ -597,7 +598,7 @@
     <div class="ey"><div class="ey-line"></div><span>Investment Programs</span></div>
     <h2>Two Distinct<br><em>Programs</em></h2>
     <p class="sec-sub">Both programs operate under a Loan Note Agreement with Galami UK Ltd, with bi-weekly trade cycles, independent audit every 90 days, and exit available at the end of each active trade cycle.</p>
-    <div class="prog-grid">
+    <div class="prog-grid" data-cert-gate>
       <div class="pc">
         <div class="pc-region">Zambia → Dubai · USD Program</div>
         <div class="pc-name">Zambia–Dubai<br>Gold Program</div>
@@ -690,7 +691,7 @@
     <div class="faq-list">
       <div class="fi"><button class="fq" onclick="tFaq(this)">What is the minimum investment for each program? <span class="fi-icon">+</span></button><div class="fa">The Zambia–Dubai Program requires a minimum of $115,000 USD in multiples of $115,000. USD or USDT are both accepted. The Sierra Leone–Dubai Program requires a minimum of €125,000 EUR in multiples of €125,000, denominated in EUR. Both programs require a minimum 12-month rolling commitment with exit available at cycle end.</div></div>
       <div class="fi"><button class="fq" onclick="tFaq(this)">What is the legal structure of the investment? <span class="fi-icon">+</span></button><div class="fa">Investor capital is deployed under a Loan Note Agreement with Galami UK Ltd (71–75 Shelton Street, Covent Garden, London, WC2H 9JQ). This provides a documented legal framework governing capital deployment, return obligations, and reporting. Investors should seek independent legal advice before signing any agreement.</div></div>
-      <div class="fi"><button class="fq" onclick="tFaq(this)">Why aren't returns published on this site? <span class="fi-icon">+</span></button><div class="fa">Return structures, cycle performance and full Loan Note terms are shared privately with qualified investors, rather than advertised publicly. Once you have self-certified and spoken with our investor relations team, you will receive indicative terms for your chosen program together with the Information Memorandum. Distributions follow each completed bi-weekly trade cycle on the terms set out in the Loan Note Agreement. Returns are not guaranteed and will vary with market conditions, spot price movements and operational factors in each cycle. <a href="#apply" style="color:var(--gold);">Request indicative terms →</a></div></div>
+      <div class="fi"><button class="fq" onclick="tFaq(this)">Why aren't returns published on this site? <span class="fi-icon">+</span></button><div class="fa">Return structures, cycle performance and full Loan Note terms are shared privately with qualified investors, rather than advertised publicly. Once you have <a href="investor-eligibility.html" style="color:var(--gold);">completed your investor certification</a> and spoken with our investor relations team, you will receive indicative terms for your chosen program together with the Information Memorandum. Distributions follow each completed bi-weekly trade cycle on the terms set out in the Loan Note Agreement. Returns are not guaranteed and will vary with market conditions, spot price movements and operational factors in each cycle. <a href="#apply" style="color:var(--gold);">Request indicative terms →</a></div></div>
       <div class="fi"><button class="fq" onclick="tFaq(this)">How is the gold verified and audited? <span class="fi-icon">+</span></button><div class="fa">Each consignment undergoes independent third-party assay before shipment is authorised, confirming purity to AU 999.9 standard. An independent audit of all active programs is additionally conducted every 90 days. Assay certificates and audit reports are provided to investors as part of the full cycle documentation pack.</div></div>
       <div class="fi"><button class="fq" onclick="tFaq(this)">When can I exit the program? <span class="fi-icon">+</span></button><div class="fa">Both programs have a minimum 12-month rolling commitment. Exit is permitted at the end of each active trade cycle, subject to the notice provisions of the Loan Note Agreement. Capital is not accessible during an active trade cycle. There is no secondary market for investor positions in either program.</div></div>
       <div class="fi"><button class="fq" onclick="tFaq(this)">Is Galami Gold regulated by the FCA? <span class="fi-icon">+</span></button><div class="fa">Galami Gold's investment programs are not regulated by the Financial Conduct Authority (FCA) and are not covered by the Financial Services Compensation Scheme (FSCS). These programs are directed exclusively at high-net-worth individuals and sophisticated investors. Investors are strongly encouraged to seek independent financial and legal advice before committing capital.</div></div>
@@ -722,7 +723,7 @@
         </div>
       </div>
       <div>
-        <form class="fw" id="formWrap" name="enquiry" data-netlify="true" netlify-honeypot="bot-field" role="form" aria-label="Investor enquiry form"><input type="hidden" name="form-name" value="enquiry"><input type="hidden" name="bot-field" style="display:none">
+        <div data-cert-gate><form class="fw" id="formWrap" name="enquiry" data-netlify="true" netlify-honeypot="bot-field" role="form" aria-label="Investor enquiry form"><input type="hidden" name="form-name" value="enquiry"><input type="hidden" name="cert_status"><input type="hidden" name="cert_date"><input type="hidden" name="bot-field" style="display:none">
           <div class="form-title">Submit Enquiry</div>
           <p class="form-sub">For high-net-worth and sophisticated investors only. All submissions reviewed individually. No obligation to invest.</p>
           <div class="frow">
@@ -745,16 +746,13 @@
           </div>
           <div class="fg"><label>Message <span style="font-weight:300;text-transform:none;letter-spacing:0;">(optional)</span></label><textarea id="msg" name="message" placeholder="Share any questions or context about your investment background."></textarea></div>
           <div class="qual-b">
-            <div class="qual-b-label">Investor Self-Certification</div>
-            <p>I confirm I am a high-net-worth individual, sophisticated investor, or institutional investor and understand this program involves capital risk, is not FCA regulated, and is not FSCS covered.</p>
-            <div class="qbtns">
-              <button type="button" class="qb" onclick="setQ(this,true)">I confirm the above</button>
-              <button type="button" class="qb" onclick="setQ(this,false)">I do not confirm</button>
-            </div>
+            <div class="qual-b-label">Investor Certification</div>
+            <p data-cert-name style="color:var(--platinum);margin-bottom:6px;"></p>
+            <p style="margin:0;">Your signed investor statement is attached to this enquiry. <a href="investor-eligibility.html" style="color:var(--gold);">View eligibility policy</a></p>
           </div>
           <button type="button" class="fsub" onclick="doSubmit()">Submit Enquiry</button>
           <p class="flegal">By submitting this form you agree to our Privacy Policy. Galami Gold will never share your details with third parties without your consent. Submission does not create any legal obligation to invest.</p>
-        </form>        <div class="fw" id="succWrap" style="display:none;">
+        </form></div>        <div class="fw" id="succWrap" style="display:none;">
           <div class="fsucc show">
             <div style="font-size:34px;color:var(--gold);">✦</div>
             <h3>Enquiry Received</h3>
@@ -802,6 +800,7 @@
       <a href="https://www.galamigold.com/contact" target="_blank" rel="noopener">Submit Enquiry</a>
       <a href="https://www.galamigold.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
       <a href="https://www.galamigold.com/risk-disclosure" target="_blank" rel="noopener">Risk Disclosure</a>
+      <a href="investor-eligibility.html">Investor Eligibility</a>
       <a href="https://www.galamigold.com/aml-compliance" target="_blank" rel="noopener">AML & Compliance</a>
     </div>
   </div>
@@ -821,12 +820,6 @@
     document.querySelectorAll('.fi.open').forEach(function(el) { el.classList.remove('open'); });
     if (!isOpen) { item.classList.add('open'); }
   }
-  var qOk = false;
-  function setQ(btn, val) {
-    btn.closest('.qbtns').querySelectorAll('.qb').forEach(function(b) { b.classList.remove('on'); });
-    btn.classList.add('on');
-    qOk = val;
-  }
   function doSubmit() {
     var fn    = (document.getElementById('fn').value || '').trim();
     var em    = (document.getElementById('em').value || '').trim();
@@ -838,7 +831,7 @@
     if (!itype) { alert('Please select your investor type.'); return; }
     if (!pr)    { alert('Please select a program of interest.'); return; }
     if (!co)    { alert('Please select your country of residence.'); return; }
-    if (!qOk)   { alert('Please confirm your investor self-certification.'); return; }
+    if (!(window.GalamiCert && GalamiCert.get())) { location.href = 'investor-eligibility.html?next=' + encodeURIComponent('index.html#apply') + '#certify'; return; }
     var sb = document.querySelector('.fsub');
     sb.textContent = 'Submitting...';    sb.disabled = true;    var fd = new FormData(document.getElementById('formWrap'));    fetch('/', { method: 'POST', body: fd })      .catch(function() {})      .finally(function() {        document.getElementById('formWrap').style.display = 'none';        document.getElementById('succWrap').style.display = 'block';      });  }
   var secs = document.querySelectorAll('section[id]');
