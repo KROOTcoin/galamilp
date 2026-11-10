@@ -1,0 +1,16 @@
+# goldinvestingcenter.com -> galamigold.com (whole-domain move, approved 10 Nov 2026)
+# Specific pages first, catch-all last. "!" forces the redirect even where a file exists.
+
+/investor-eligibility.html https://galamigold.com/investor-eligibility 301!
+/investor-eligibility https://galamigold.com/investor-eligibility 301!
+
+# Legacy Gold Investing Center articles still listed in Bing (currently 404)
+/golds-resurgence-why-investment-demand-soars-amid-economic-turmoil https://galamigold.com/news 301!
+/gold-prices-skyrocket-to-unprecedented-heights-amidst-turmoil-from-trump-tariffs https://galamigold.com/news 301!
+/gold-soars-as-investors-seek-safe-haven-amid-us-tariff-fears https://galamigold.com/news 301!
+/maximize-your-investment-discover-the-pure-gold-and-silver-bullion-bar-for-easy-dividing https://galamigold.com/gold-asset-examples-diversification 301!
+/2025/* https://galamigold.com/news 301!
+/gold-investing-center/* https://galamigold.com/ 301!
+
+# Everything else, including the homepage
+/* https://galamigold.com/ 301!
